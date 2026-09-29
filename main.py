@@ -53,3 +53,17 @@ class Light(Device):
             print("Light switched off")
         return result
 
+class Controller:
+    def __init__(self,device):
+        self.device=device
+    def operate(self):
+        self.device.start()
+        self.device.stop()
+    
+if __name__ == "__main__":
+    motor1= Motor()
+    light1= Light()
+    motor_controller= Controller(motor1)
+    light_controller= Controller(light1)
+    motor_controller.operate()
+    light_controller.operate()
